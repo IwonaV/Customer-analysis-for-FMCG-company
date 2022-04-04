@@ -101,10 +101,17 @@ After plotting the components, we are able to distinguish the all 4 cluster so t
 ![image](https://user-images.githubusercontent.com/85560182/161345524-00eb6bff-d89a-4128-9555-c719b14006a1.png)
 
 ## Positioning
+Here we try to answer the questions:
+2.	Will the customer buy the product from a particular product category when they enter the shop? 
+3.	Which brand is the customer going to choose 
+4.	How many units is the customer going to purchase?
 
+### 1. 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐯𝐞 𝐀𝐧𝐚𝐥𝐲𝐬𝐢𝐬 𝐛𝐲 𝐒𝐞𝐠𝐦𝐞𝐧𝐭𝐬
 
-### About the dataset
+### Segmentation data
+
 The dataset consists of information about the purchases of chocolate  bars of 500 individuals from a given area when entering a physical ‘FMCG’ store in the period of 2 years. All data has been collected through the loyalty cards they use at checkout. The data has been preprocessed and there are no missing values.
+
 
 |          |     ID           |     Day    |     Incidence    |     Brand    |     Quantity    |     Last_Inc_Brand    |     Last_Inc_Quantity    |     Price_1    |     Price_2    |     Price_3    |     ...    |     Promotion_4    |     Promotion_5    |     Sex    |     Marital status    |     Age    |     Education    |     Income    |     Occupation    |     Settlement size    |     Segment    |
 |----------|------------------|------------|------------------|--------------|-----------------|-----------------------|--------------------------|----------------|----------------|----------------|------------|--------------------|--------------------|------------|-----------------------|------------|------------------|---------------|-------------------|------------------------|----------------|
@@ -113,6 +120,29 @@ The dataset consists of information about the purchases of chocolate  bars of 50
 |     2    |     200000001    |     12     |     0            |     0        |     0           |     0                 |     0                    |     1.51       |     1.89       |     1.99       |     ...    |     0              |     0              |     0      |     0                 |     47     |     1            |     110866    |     1             |     0                  |     0          |
 |     3    |     200000001    |     16     |     0            |     0        |     0           |     0                 |     0                    |     1.52       |     1.89       |     1.98       |     ...    |     0              |     0              |     0      |     0                 |     47     |     1            |     110866    |     1             |     0                  |     0          |
 |     4    |     200000001    |     18     |     0            |     0        |     0           |     0                 |     0                    |     1.52       |     1.89       |     1.99       |     ...    |     0              |     0              |     0      |     0                 |     47     |     1            |     110866    |     1             |     0                  |     0          |
+
+The data has been mapped with the values:
+- Incidence: 0 -The customer has not purchased an item from the category of interest, 1 - The customer has purchased an item from the category of interest
+- Brand: 0 - No brand was purchased, 1 -  Brand ID the customer has purchased
+- Last_Inc_Brand: 0 - No brand was purchased, {1,2,3,4,5} - brand ID the customer has purchased on their previous store visit
+- Promotion_1:  0 - Brand 1 was not on promotion or not on a particular day, 1 - Brand 1 was on promotion or not on a particular day
+- Promotion_2:  0 - Brand 2 was not on promotion or not on a particular day, 1 - Brand 2 was on promotion or not on a particular day
+- Promotion_3:  0 - Brand 3 was not on promotion or not on a particular day, 1 - Brand 3 was on promotion or not on a particular day
+- Promotion_4:  0 - Brand 4 was not on promotion or not on a particular day, 1 - Brand 4 was on promotion or not on a particular day
+- Promotion_5:  0 - Brand 5 was not on promotion or not on a particular day, 1 - Brand 5 was on promotion or not on a particular day
+- Sex: 0 - male, 1 – female
+- Marital status: 0 - single, 1-non-single (divorced / separated / widowed)
+- Education: 0 - other / unknown, 1 - high school, 2 - university, 3 - graduate school
+- Occupation: 0 – unemployed / unskilled, 1 - skilled employee, 2 - management / self-employed / highly qualified employee
+- Settlement size: 0 – small city, 1 - midsized city, 2 – big city
+
+### Applying the segmentation model 
+An important part of the analytics is knowing how the customers are similar to each other’s. So we’ll use the insights we’ve gain so far and we place the new customers to 4 clusters we have determined. So the data needs to be pre-processed the same way how when building the customer segmentation model.
+To standardise the variables, we will import the scaler and PCA object but will not fit them instead we will transform the data by using them.
+
+So I will be building purchase behaviour model and analysing purchase behaviour of the segments. 
+Starting from calculating number of visits, number of purchases and average number of purchases and which segment they belong and calculating the segment proportions. 
+Next calculating the mean of average purchases by the four segments would help to determine the average customer behaviour in each segment.
 
 
 
