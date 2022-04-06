@@ -86,12 +86,18 @@ We observed that the cyan segment represents well off cluster is clearly separat
 PCA- Principal Component Analysis is used to find a subset of components, which explain the variance in the data. We have to select the subset of 3 components which preserves about 80% of the variability of the dataset.
 The components attribute shows the loadings of each component on each of the seven original features. 
 The loadings are the correlations between the components and the original features.
+From this visual We can see explained variance by components.
+
+![image](https://user-images.githubusercontent.com/85560182/161862577-f20d38de-71aa-4724-9877-f9882aaf3358.png)
+
+Plotting the loadings using a Heat Map
 
 ![image](https://user-images.githubusercontent.com/85560182/161345420-83e55e3e-5ca7-4c66-acf5-1c8391d5e65e.png)
 
 From the results we can see that there is a positive correlation between first component and age, income, occupation and settlement size. These relate to career of a person. This component focused on the career of individual. 
 In the second component sex, marital status and education are the most prominent determinants and are rather refer to education and lifestyle.
 In the third component age, marital status and occupation are the most important determinants. 
+
 
 ### 6. K-mean in combination with PCA for better clustering solution
 After plotting the components, we are able to distinguish the all 4 cluster so the division based on the PCA is much more visible. That is the purpose of PCA to reduces features by combining them into bigger more meaningful ones. Thanks to that we managed to reduce the features from seven into three.
@@ -105,8 +111,8 @@ Here we try to answer the questions:
 2.	Will the customer buy the product from a particular product category when they enter the shop? 
 3.	Which brand is the customer going to choose 
 4.	How many units is the customer going to purchase?
+5.	
 
-### 1. 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐯𝐞 𝐀𝐧𝐚𝐥𝐲𝐬𝐢𝐬 𝐛𝐲 𝐒𝐞𝐠𝐦𝐞𝐧𝐭𝐬
 
 ### Segmentation data
 
@@ -135,14 +141,69 @@ The data has been mapped with the values:
 - Education: 0 - other / unknown, 1 - high school, 2 - university, 3 - graduate school
 - Occupation: 0 – unemployed / unskilled, 1 - skilled employee, 2 - management / self-employed / highly qualified employee
 - Settlement size: 0 – small city, 1 - midsized city, 2 – big city
+- 
 
 ### Applying the segmentation model 
+
 An important part of the analytics is knowing how the customers are similar to each other’s. So we’ll use the insights we’ve gain so far and we place the new customers to 4 clusters we have determined. So the data needs to be pre-processed the same way how when building the customer segmentation model.
 To standardise the variables, we will import the scaler and PCA object but will not fit them instead we will transform the data by using them.
+
+### 1. 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐯𝐞 𝐀𝐧𝐚𝐥𝐲𝐬𝐢𝐬 𝐛𝐲 𝐒𝐞𝐠𝐦𝐞𝐧𝐭𝐬
 
 So I will be building purchase behaviour model and analysing purchase behaviour of the segments. 
 Starting from calculating number of visits, number of purchases and average number of purchases and which segment they belong and calculating the segment proportions. 
 Next calculating the mean of average purchases by the four segments would help to determine the average customer behaviour in each segment.
+
+- table with number of visitts, nr purchases etc. 
+
+the information we gain we can use it to calculate the segment proportions, by gruping by the each segment.
+
+# Segment Proportions
+
+### 1. Proportions of the purchases by segment 
+
+image - segment proportion
+
+It is clearly visible that the largest segment is fewer- oportunities followed by career focused individuals. 
+
+### 2.  𝐏𝐮𝐫𝐜𝐡𝐚𝐬𝐞 𝐎𝐜𝐜𝐚𝐬𝐢𝐨𝐧 and a𝐮𝐫𝐜𝐡𝐚𝐬𝐞 𝐈𝐧𝐜𝐢𝐝𝐞𝐧𝐜𝐞
+
+Next calculating the mean of average purchases by the four segments would help to determine the average customer behaviour in each segment.
+
+### The average number of store visits
+
+Using the bar chart to visualize how ofter the people from diferent segment visit the store. 
+
+- image 
+
+So looking at the bar chart we can see which segment visit the sore the most and we can see that career focused is the most frequent but at the same time the standard deviation quite high, this imply that the individuals within this segment are least homogenous, that is least alike when it comes to how often they visit the grocery store.
+
+### Number of purchases by segment
+
+image 
+
+we observed that the career focused segments buys the product more often but at the same time its standard deviation is the highest. the most homogenues segment is the fewer oporunities. also standatd segment is consistent with  
+
+### 3. Brand choice
+
+which brand is the customer going to choose?
+for this porpose made dummies for each of the five brands
+-	So I have to concentrate only on the occasions when the chocolate bar was purchased and for better understanding I created the heat map of average brand choice by segment. where Brand 1 is the chipperst and Brabd 5 most expensive.
+
+-  image heat map of brand choice 
+
+And from the result is visible that almost 70% of fewer oportunities segment strongly prefer the brand 2  which is not the chippest one, where else 63% of career focused segment prefer the most expensive one -Brand 5 which can indicate that this segment is looking for some kind of luxury status. and this can be the oportunity to rise the price of brand 5 even further. interestingly the well off segment prefers the more luxurius brand but not the most expensive -Brand 4.
+looking at the standard segment we can see that is the most heterogenious one as the preferences are scater all arount the brands. 
+- if looking for actionable insight one idea is to tring influence them to try out diferent brands. This insight are very interesing but they dont really explain how they afect the botom line so exporing reveniu by segment is the next step.
+
+### 4. Revenue by segment 
+
+
+
+
+
+
+
 
 
 
