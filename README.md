@@ -110,8 +110,7 @@ After plotting the components, we are able to distinguish the all 4 cluster so t
 Here we try to answer the questions:
 2.	Will the customer buy the product from a particular product category when they enter the shop? 
 3.	Which brand is the customer going to choose 
-4.	How many units is the customer going to purchase?
-5.	
+4.	How many units is the customer going to purchase?	
 
 
 ### Segmentation data
@@ -162,7 +161,7 @@ the information we gain we can use it to calculate the segment proportions, by g
 
 ### 1. Proportions of the purchases by segment 
 
-image - segment proportion
+![image](https://user-images.githubusercontent.com/85560182/162336784-f5488025-682c-437d-963e-7dc5886ed0bb.png)
 
 It is clearly visible that the largest segment is fewer- oportunities followed by career focused individuals. 
 
@@ -174,13 +173,13 @@ Next calculating the mean of average purchases by the four segments would help t
 
 Using the bar chart to visualize how ofter the people from diferent segment visit the store. 
 
-- image 
+![image](https://user-images.githubusercontent.com/85560182/162336875-63b391a8-4504-49ee-a36e-c23ef5df48d8.png)
 
 So looking at the bar chart we can see which segment visit the sore the most and we can see that career focused is the most frequent but at the same time the standard deviation quite high, this imply that the individuals within this segment are least homogenous, that is least alike when it comes to how often they visit the grocery store.
 
 ### Number of purchases by segment
 
-image 
+![image](https://user-images.githubusercontent.com/85560182/162336890-20e3e252-0277-40bf-888e-7350755162ff.png)
 
 we observed that the career focused segments buys the product more often but at the same time its standard deviation is the highest. the most homogenues segment is the fewer oporunities. also standatd segment is consistent with  
 
@@ -189,14 +188,30 @@ we observed that the career focused segments buys the product more often but at 
 which brand is the customer going to choose?
 for this porpose made dummies for each of the five brands
 -	So I have to concentrate only on the occasions when the chocolate bar was purchased and for better understanding I created the heat map of average brand choice by segment. where Brand 1 is the chipperst and Brabd 5 most expensive.
-
--  image heat map of brand choice 
+-	
+![image](https://user-images.githubusercontent.com/85560182/162336909-12b9f932-1027-49b2-a8c3-98dbc8364517.png)
 
 And from the result is visible that almost 70% of fewer oportunities segment strongly prefer the brand 2  which is not the chippest one, where else 63% of career focused segment prefer the most expensive one -Brand 5 which can indicate that this segment is looking for some kind of luxury status. and this can be the oportunity to rise the price of brand 5 even further. interestingly the well off segment prefers the more luxurius brand but not the most expensive -Brand 4.
 looking at the standard segment we can see that is the most heterogenious one as the preferences are scater all arount the brands. 
 - if looking for actionable insight one idea is to tring influence them to try out diferent brands. This insight are very interesing but they dont really explain how they afect the botom line so exporing reveniu by segment is the next step.
 
 ### 4. Revenue by segment 
+
+Calculating revenue for each brand by segment and total revenue for each of the four segments.
+Also modifying the table to include the segment proportions, it is interesting to see the size of the segment compared to the revenue they bring.
+
+	|Revenue Brand 1	|Revenue Brand 2	|Revenue Brand 3	|Revenue Brand 4	|Revenue Brand 5	|Total Revenue	|Segment Proportions|
+  |------------------|------------|-----------------------|------------|------------------|---------------|-------------------|
+|Segment||            |                       |            |                  |               |                   |
+|Fewer-Opportunities|	2258.90|	13909.78|	722.06|	1805.59	|2214.82|	20911.15|	0.378|
+|Career-Focused|	736.09	|1791.78|	664.75|	2363.84|	19456.74|	25013.20	|0.222|
+|Standard	|2611.19|	4768.52	|3909.17|	861.38	|2439.75|	14590.01|	0.206|
+|Well-Off	|699.47	|1298.23	|725.54	|14009.29|	5509.69|	22242.22|	0.194|
+
+Analysing the result, we can see that the career focused segment bring the most revenue follow by the well- off and fewer opportunities segments. The standard segment is smallest in contribution to the revenue. Looking at the segment proportion the career-focused is also the largest. The well- off and fewer- opportunities segments spend around the same amount of money on the chocolate bars. However, the fewer- opportunities segment is twice as big as well – off.
+Looking from the perspective of the individual brands we can see that the brand 3 has the lowest revenue and its higher contributor is the standard segment. 
+So if we looking at the actionable ideas, perhaps reducing the price of brand 3 could encourage that segment to buying this product even more. 
+Brand 4 is popular in well-off segment which also is a big buyer of Brand 5. So looks like the loyalty is the biggest factor. Here insignificant increase the price of that brands could be consider. 
 
 
 
