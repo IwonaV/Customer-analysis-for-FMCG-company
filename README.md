@@ -140,7 +140,7 @@ The data has been mapped with the values:
 - Education: 0 - other / unknown, 1 - high school, 2 - university, 3 - graduate school
 - Occupation: 0 – unemployed / unskilled, 1 - skilled employee, 2 - management / self-employed / highly qualified employee
 - Settlement size: 0 – small city, 1 - midsized city, 2 – big city
-- 
+
 
 ### Applying the segmentation model 
 
@@ -153,9 +153,7 @@ So I will be building purchase behaviour model and analysing purchase behaviour 
 Starting from calculating number of visits, number of purchases and average number of purchases and which segment they belong and calculating the segment proportions. 
 Next calculating the mean of average purchases by the four segments would help to determine the average customer behaviour in each segment.
 
-- table with number of visitts, nr purchases etc. 
-
-the information we gain we can use it to calculate the segment proportions, by gruping by the each segment.
+The information we gain we can use it to calculate the segment proportions, by gruping by the each segment.
 
 # Segment Proportions
 
@@ -187,8 +185,8 @@ we observed that the career focused segments buys the product more often but at 
 
 which brand is the customer going to choose?
 for this porpose made dummies for each of the five brands
--	So I have to concentrate only on the occasions when the chocolate bar was purchased and for better understanding I created the heat map of average brand choice by segment. where Brand 1 is the chipperst and Brabd 5 most expensive.
--	
+-	So I have to concentrate only on the occasions when the chocolate bar was purchased and for better understanding I created the heat map of average brand choice by segment. Where Brand 1 is the chipperst and Brabd 5 most expensive.
+	
 ![image](https://user-images.githubusercontent.com/85560182/162336909-12b9f932-1027-49b2-a8c3-98dbc8364517.png)
 
 And from the result is visible that almost 70% of fewer oportunities segment strongly prefer the brand 2  which is not the chippest one, where else 63% of career focused segment prefer the most expensive one -Brand 5 which can indicate that this segment is looking for some kind of luxury status. and this can be the oportunity to rise the price of brand 5 even further. interestingly the well off segment prefers the more luxurius brand but not the most expensive -Brand 4.
@@ -200,13 +198,15 @@ looking at the standard segment we can see that is the most heterogenious one as
 Calculating revenue for each brand by segment and total revenue for each of the four segments.
 Also modifying the table to include the segment proportions, it is interesting to see the size of the segment compared to the revenue they bring.
 
-	|Revenue Brand 1	|Revenue Brand 2	|Revenue Brand 3	|Revenue Brand 4	|Revenue Brand 5	|Total Revenue	|Segment Proportions|
-  |------------------|------------|-----------------------|------------|------------------|---------------|-------------------|
-|Segment||            |                       |            |                  |               |                   |
-|Fewer-Opportunities|	2258.90|	13909.78|	722.06|	1805.59	|2214.82|	20911.15|	0.378|
-|Career-Focused|	736.09	|1791.78|	664.75|	2363.84|	19456.74|	25013.20	|0.222|
-|Standard	|2611.19|	4768.52	|3909.17|	861.38	|2439.75|	14590.01|	0.206|
-|Well-Off	|699.47	|1298.23	|725.54	|14009.29|	5509.69|	22242.22|	0.194|
+|                            |     Revenue Brand 1    |     Revenue Brand 2    |     Revenue Brand 3    |     Revenue Brand 4    |     Revenue Brand 5    |     Total Revenue    |     Segment Proportions    |
+|----------------------------|------------------------|------------------------|------------------------|------------------------|------------------------|----------------------|----------------------------|
+|     Segment                |                        |                        |                        |                        |                        |                      |                            |
+|     Fewer-Opportunities               |     2258.90            |     13909.78           |     722.06             |     1805.59            |     2214.82            |     20911.15         |     0.378                  |
+|     Career-Focused         |     736.09             |     1791.78            |     664.75             |     2363.84            |     19456.74           |     25013.20         |     0.222                  |
+|     Standard    |     2611.19            |     4768.52            |     3909.17            |     861.38             |     2439.75            |     14590.01         |     0.206                  |
+|     Well-Off               |     699.47             |     1298.23            |     725.54             |     14009.29           |     5509.69            |     22242.22         |     0.194                  |
+
+
 
 Analysing the result, we can see that the career focused segment bring the most revenue follow by the well- off and fewer opportunities segments. The standard segment is smallest in contribution to the revenue. Looking at the segment proportion the career-focused is also the largest. The well- off and fewer- opportunities segments spend around the same amount of money on the chocolate bars. However, the fewer- opportunities segment is twice as big as well – off.
 Looking from the perspective of the individual brands we can see that the brand 3 has the lowest revenue and its higher contributor is the standard segment. 
