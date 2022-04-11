@@ -1,18 +1,13 @@
 # Customer-analysis-for-FMCG-company
 
 
-This analysis aims to suggest the FMCG (fast-moving consumer goods) company, what to considered when developing marketing and pricing strategies in order to increase revenue from the purchase of a specific brand of chocolate bars. 
-For that purpose, STP(Segmentation, Targeting, Positioning) framework is taken into consideration.
+This analysis aims to suggest the FMCG (fast-moving consumer goods) company, what to consider when developing marketing and pricing strategies to increase revenue from the purchase of a specific brand of chocolate bars. 
+For that purpose, STP (Segmentation, Targeting, Positioning) framework is taken into consideration.
 
-The analysis consists of two parts:
-1. Segmentation 
-Performing K-means clustering with PCA (Principal Component Analytics) for dimensionality reduction. Combining clustering results with descriptive statistics allowed for the extraction some interesting insights about revenue distribution by brand and customer segment. 
-2. Positioning 
-The marketing mix is the main approach to positioning and this analysis will focus on customer behaviour in terms of purchase probability, brand choice probability, and purchase quantity.  
-For that purpose the machine learning algorithms linear regression and logistic regression were implemented.
+## 1.Segmentation 
 
+Dividing customers into groups with similar characteristics using of K-means and Principal Component Analytics (PCA) clustering to reduce dimensionality. The combination of clustering results with descriptive statistics allowed for the extraction some interesting insights about revenue distribution by brand and customer segment. 
 
-## Segmentation
 ### Dataset for Segmentation
 
 |                  |     Sex    |     Marital status    |     Age    |     Education    |     Income    |     Occupation    |     Settlement size    |
@@ -24,39 +19,43 @@ For that purpose the machine learning algorithms linear regression and logistic 
 |     100000004    |     0      |     0                 |     45     |     1            |     171565    |     1             |     1                  |
 |     100000005    |     0      |     0                 |     53     |     1            |     149031    |     1             |     1                  |
 
+
 The dataset consists of information about the purchasing behaviour of 2,000 individuals from a given area when entering a physical ‘FMCG’ store. All data has been collected through the loyalty cards they use at checkout. The data has been pre-processed and there are no missing values. 
 
 The dataset contains 7 demographic and geographic variables 
 Sex, Marital status, age, education, income, occupation, settlement size
 
-The data has been mapped with the values:
+The data has been assign with the values:
 - Sex: 0 - male, 1 – female
 - Marital status: 0 - single, 1-non-single (divorced / separated / widowed)
 - Education: 0 - other / unknown, 1 - high school, 2 - university, 3 - graduate school
 - Occupation: 0 – unemployed / unskilled, 1 - skilled employee, 2 - management / self-employed / highly qualified employee
 - Settlement size: 0 – small city, 1 - midsized city, 2 – big city
 
-### 1. Correlation heat map
+### 1.1. Correlation heat map
+
 Plotting the correlations using a Heat Map.
 
-![image](https://user-images.githubusercontent.com/85560182/161345059-5ac6e78b-80ab-4c6c-a5a8-1124e591d512.png)
+![image](https://user-images.githubusercontent.com/85560182/162837482-b5a7cce6-e5c4-4dae-84f9-ebf61fcfb459.png)
 
+- There is strong positive correlation between the Income vs Occupation and Age vs Education variables. These are the types of relationship that will be used in segmentation and will be grouped together based on their similarities.
 
-- We can see a strong positive correlation between the Income vs Occupation and Age vs Education. These are the kind of relationship that will be used in segmentation. As based on the similarities they will be grouped together.
+### 1.2. Standardising the data
 
-### 2. Standardising the data
-We need to treat all the features equally and can achieve that by transforming the feature in such a way that theirs values fall within the same numerical range. Thus the differences between their values would be comparable.
+All the features need to be treated equally and this can be achieved that by transforming them in such a way that theirs values fall within the same numerical range. Thus the differences between their values would be comparable.
 
-### 3. Hierarchical clustering
+### 1.3. Hierarchical clustering
+
 The results are returned as a linkage matrix and a Dendrogram is used for plotting the results. 
 
 ![image](https://user-images.githubusercontent.com/85560182/161345264-45042018-7e9b-4807-87ba-85b0dea3b977.png)
 
-### 4. K-means clustering
-Performing K-means clustering. We consider 1 to 10 clusters, so the for loop runs 10 iterations
+### 1.4. K-means clustering
+
+Performing K-means clustering. Considering 1 to 10 clusters, so the for loop runs 10 iterations.
 Plotting the Within Cluster Sum of Squares for the different number of clusters
 
-![image](https://user-images.githubusercontent.com/85560182/161345308-f16774dd-8dbe-491c-b3a4-7ff3967d8f27.png)
+![image](https://user-images.githubusercontent.com/85560182/162837577-ef4ebc0b-9649-44aa-be8f-b71af666d876.png)
 
 ### K-mean Clustering Results 
 
@@ -71,46 +70,48 @@ We obtained 4 segments:
 |     standard   |   0.029825	| 0.173684	| 35.635088	| 0.733333	| 141218.249123	| 1.271930	| 1.522807	| 570	| 0.2850|
 |     career focused   |   0.853901 |	0.997163	| 28.963121 |	1.068085 |	105759.119149 |	0.634043 |	0.422695	| 705	| 0.3525|
 
--	Segment 1. It is composed of men and women almost equally with the average age of 56. Comparing the mean with the oldest clusters we see that it contains the oldest individuals. More than 2/3 are in relationship and they also have the higher level of education and income. We can call them - Well off Married in their 50s. 
-- Segment 2. In this segment 2/3 are male and almost all are single with the average age of 36. Education level is low on average compering to other segments. The salary is also the lowest and they leaving in small cities. We can name it - fewer opportunities. 
-- Segment 3. This is the youngest segment with mostly women in a relationship, average age 29. They have a medium level of education, average income and middle management jobs. They seem to be equally distributed between small and mid-size cities. So they seem to be average in every parameter so we can call it - average or standard.
-- Segment 4. Mostly men, less than 20% in the relationship, low values in education and high values in income and occupation. Majority of this segment lives in in big or middle-size cities. They are career focused in their 30s.
+- Segment 1. Composed almost equally of men and women with the average age of 56. Comparing the mean with the oldest clusters we see that it contains the oldest individuals. More than 2/3 are in relationship and they also have the higher level of education and income. We can call them  a wealthy  married couples in their 50s. – Well off
+- Segment 2. In this segment 2/3 are men and almost all are single people with an average age of 36. The level of education is on average low compared to other segments. The salary is also the lowest and they live in small cities. We can name it - Fewer opportunities. 
+- Segment 3. This is the youngest segment where predominate women in relationship, average age 29. They have a medium level of education, average income and middle management jobs. They seem to be equally distributed between small and mid-size cities. So they seem to be average in every parameter so we can call it - Average or Standard.
+- Segment 4. Mostly men, less than 20% in the relationship, low values in education and high in income and occupation. Most of this segment lives in in large or middle-size cities. They are career focused in their 30s.
 
-Plotting the results from the K-means algorithm.
+### Plotting the results from the K-means algorithm.
 
 ![image](https://user-images.githubusercontent.com/85560182/161345370-c1c46ed3-9451-4373-b2de-bdef349e3238.png)
 
-We observed that the cyan segment represents well off cluster is clearly separated. The other three segments are grouped together and it is difficult to distinguish between them. For better result, we will perform PCA to reduce dimensionality and better differentiation of clusters.
+We observed that the cyan segment represents Well off cluster is clearly separated. The other three segments are grouped together and it is difficult to distinguish between them. For better result, we will perform PCA to reduce dimensionality and better differentiation of clusters.
 
-### 5. PCA
-PCA- Principal Component Analysis is used to find a subset of components, which explain the variance in the data. We have to select the subset of 3 components which preserves about 80% of the variability of the dataset.
-The components attribute shows the loadings of each component on each of the seven original features. 
+### 1.5. PCA
+
+Principal Component Analysis is used to find a subset of the components that explain the variance of the data. We need to select the subset of 3 components which preserves about 80% of the variability of the dataset.
+The components attribute shows the loadings of each component of each of the seven original features. 
 The loadings are the correlations between the components and the original features.
-From this visual We can see explained variance by components.
+In this visual We can see explained variance by components.
 
 ![image](https://user-images.githubusercontent.com/85560182/161862577-f20d38de-71aa-4724-9877-f9882aaf3358.png)
 
-Plotting the loadings using a Heat Map
+Plotting the loadings using a Heat Map.
 
-![image](https://user-images.githubusercontent.com/85560182/161345420-83e55e3e-5ca7-4c66-acf5-1c8391d5e65e.png)
+![image](https://user-images.githubusercontent.com/85560182/162837656-4f56ecc2-7cd5-4046-8f34-c083383925c2.png)
 
-From the results we can see that there is a positive correlation between first component and age, income, occupation and settlement size. These relate to career of a person. This component focused on the career of individual. 
-In the second component sex, marital status and education are the most prominent determinants and are rather refer to education and lifestyle.
-In the third component age, marital status and occupation are the most important determinants. 
+The results show that there is a positive correlation between the first component and age, income, occupation and settlement size. These relate to career of a person. This component focused on the career of individual. 
+In the second component, sex, marital status and education are the most prominent determinants and relate rather to education and lifestyle.
+In the third component, age, marital status and occupation are the most important determinants. 
 
 
-### 6. K-mean in combination with PCA for better clustering solution
-After plotting the components, we are able to distinguish the all 4 cluster so the division based on the PCA is much more visible. That is the purpose of PCA to reduces features by combining them into bigger more meaningful ones. Thanks to that we managed to reduce the features from seven into three.
+### 1.6. K-mean in combination with PCA for better clustering solution
 
-![image](https://user-images.githubusercontent.com/85560182/161345487-352803d8-553a-497d-8071-499da555eac5.png)
-![image](https://user-images.githubusercontent.com/85560182/161345507-3ec95014-0cd1-4c8b-8060-67dbfcd22760.png)
-![image](https://user-images.githubusercontent.com/85560182/161345524-00eb6bff-d89a-4128-9555-c719b14006a1.png)
+After plotting the components, we are able to distinguish the all 4 cluster so the division based on the PCA is much more visible. It is the goal of PCA to reduces features by combining them into large more meaningful ones. Thanks to this we were to reduce the features from seven to three.
+
+![image](https://user-images.githubusercontent.com/85560182/162837761-79149fc9-c69f-4216-83ef-830d1c2d2717.png)
+![image](https://user-images.githubusercontent.com/85560182/162837789-f721b679-f87a-4066-bbbe-848efd88e0ff.png)
+![image](https://user-images.githubusercontent.com/85560182/162837820-f706af6b-2d8c-4d1c-b037-91873548bf7d.png)
 
 ## Positioning
 Here we try to answer the questions:
-2.	Will the customer buy the product from a particular product category when they enter the shop? 
-3.	Which brand is the customer going to choose 
-4.	How many units is the customer going to purchase?	
+2. Will the customer buy the product from a particular product category when they enter the shop? 
+3. Which brand is the customer going to choose 
+4. How many units is the customer going to purchase?	
 
 
 ### Segmentation data
@@ -159,7 +160,7 @@ The information we gain we can use it to calculate the segment proportions, by g
 
 ### 1. Proportions of the purchases by segment 
 
-![image](https://user-images.githubusercontent.com/85560182/162336784-f5488025-682c-437d-963e-7dc5886ed0bb.png)
+![image](https://user-images.githubusercontent.com/85560182/162837988-4888d44e-6044-44f4-83bc-8b5d0220e25f.png)
 
 It is clearly visible that the largest segment is fewer- oportunities followed by career focused individuals. 
 
@@ -169,15 +170,15 @@ Next calculating the mean of average purchases by the four segments would help t
 
 ### The average number of store visits
 
-Using the bar chart to visualize how ofter the people from diferent segment visit the store. 
+Using the bar chart to visualize how often the people from diferent segment visit the store. 
 
-![image](https://user-images.githubusercontent.com/85560182/162336875-63b391a8-4504-49ee-a36e-c23ef5df48d8.png)
+![image](https://user-images.githubusercontent.com/85560182/162838129-e1764b73-46f7-47a9-b6de-760df4834bc3.png)
 
 So looking at the bar chart we can see which segment visit the sore the most and we can see that career focused is the most frequent but at the same time the standard deviation quite high, this imply that the individuals within this segment are least homogenous, that is least alike when it comes to how often they visit the grocery store.
 
 ### Number of purchases by segment
 
-![image](https://user-images.githubusercontent.com/85560182/162336890-20e3e252-0277-40bf-888e-7350755162ff.png)
+![image](https://user-images.githubusercontent.com/85560182/162838158-e624981a-0cec-4ad1-a1a9-2f21cf6a9c23.png)
 
 we observed that the career focused segments buys the product more often but at the same time its standard deviation is the highest. the most homogenues segment is the fewer oporunities. also standatd segment is consistent with  
 
@@ -187,7 +188,7 @@ which brand is the customer going to choose?
 for this porpose made dummies for each of the five brands
 -	So I have to concentrate only on the occasions when the chocolate bar was purchased and for better understanding I created the heat map of average brand choice by segment. Where Brand 1 is the chipperst and Brabd 5 most expensive.
 	
-![image](https://user-images.githubusercontent.com/85560182/162336909-12b9f932-1027-49b2-a8c3-98dbc8364517.png)
+![image](https://user-images.githubusercontent.com/85560182/162838267-782cc679-399b-4bda-ab26-f145c14ccabe.png)
 
 And from the result is visible that almost 70% of fewer oportunities segment strongly prefer the brand 2  which is not the chippest one, where else 63% of career focused segment prefer the most expensive one -Brand 5 which can indicate that this segment is looking for some kind of luxury status. and this can be the oportunity to rise the price of brand 5 even further. interestingly the well off segment prefers the more luxurius brand but not the most expensive -Brand 4.
 looking at the standard segment we can see that is the most heterogenious one as the preferences are scater all arount the brands. 
