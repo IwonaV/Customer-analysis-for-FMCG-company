@@ -53,9 +53,9 @@ The results are returned as a linkage matrix and a Dendrogram is used for plotti
 ### 1.4. K-means clustering
 
 Performing K-means clustering. Considering 1 to 10 clusters, so the for loop runs 10 iterations.
-Plotting the Within Cluster Sum of Squares for the different number of clusters
+Plotting the Within Cluster Sum of Squares for the different number of clusters and using Elbow Method to choose the number of clusters.
 
-![image](https://user-images.githubusercontent.com/85560182/162837577-ef4ebc0b-9649-44aa-be8f-b71af666d876.png)
+![image](https://user-images.githubusercontent.com/85560182/162848466-fde58a78-b040-4895-9e05-7d17e3259b38.png)
 
 ### K-mean Clustering Results 
 
@@ -70,7 +70,7 @@ We obtained 4 segments:
 |     standard   |   0.029825	| 0.173684	| 35.635088	| 0.733333	| 141218.249123	| 1.271930	| 1.522807	| 570	| 0.2850|
 |     career focused   |   0.853901 |	0.997163	| 28.963121 |	1.068085 |	105759.119149 |	0.634043 |	0.422695	| 705	| 0.3525|
 
-- Segment 1. Composed almost equally of men and women with the average age of 56. Comparing the mean with the oldest clusters we see that it contains the oldest individuals. More than 2/3 are in relationship and they also have the higher level of education and income. We can call them  a wealthy  married couples in their 50s. – Well off
+- Segment 1. Composed almost equally of men and women with the average age of 56. Comparing the mean with the oldest clusters we see that it contains the oldest individuals. More than 2/3 are in relationship and they also have the higher level of education and income. We can call them  a wealthy  married couples in their 50s. – Well off.
 - Segment 2. In this segment 2/3 are men and almost all are single people with an average age of 36. The level of education is on average low compared to other segments. The salary is also the lowest and they live in small cities. We can name it - Fewer opportunities. 
 - Segment 3. This is the youngest segment where predominate women in relationship, average age 29. They have a medium level of education, average income and middle management jobs. They seem to be equally distributed between small and mid-size cities. So they seem to be average in every parameter so we can call it - Average or Standard.
 - Segment 4. Mostly men, less than 20% in the relationship, low values in education and high in income and occupation. Most of this segment lives in in large or middle-size cities. They are career focused in their 30s.
