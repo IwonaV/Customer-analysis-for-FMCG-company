@@ -6,7 +6,7 @@ For that purpose, STP (Segmentation, Targeting, Positioning) framework is taken 
 
 ## 1.Segmentation 
 
-Dividing customers into groups with similar characteristics using of K-means and Principal Component Analytics (PCA) clustering to reduce dimensionality. The combination of clustering results with descriptive statistics allowed for the extraction some interesting insights about revenue distribution by brand and customer segment. 
+Dividing customers into groups with similar characteristics using of K-means and Principal Component Analytics (PCA) clustering to reduce dimensionality. The combination of clustering results with descriptive statistics allowed for the extraction some interesting insights about revenue distribution by brand and customer segment.  
 
 ### Dataset for Segmentation
 
@@ -25,12 +25,12 @@ The dataset consists of information about the purchasing behaviour of 2,000 indi
 The dataset contains 7 demographic and geographic variables 
 Sex, Marital status, age, education, income, occupation, settlement size
 
-The data has been assign with the values:
 - Sex: 0 - male, 1 – female
 - Marital status: 0 - single, 1-non-single (divorced / separated / widowed)
 - Education: 0 - other / unknown, 1 - high school, 2 - university, 3 - graduate school
 - Occupation: 0 – unemployed / unskilled, 1 - skilled employee, 2 - management / self-employed / highly qualified employee
 - Settlement size: 0 – small city, 1 - midsized city, 2 – big city
+
 
 ### 1.1. Correlation heat map
 
@@ -53,9 +53,9 @@ The results are returned as a linkage matrix and a Dendrogram is used for plotti
 ### 1.4. K-means clustering
 
 Performing K-means clustering. Considering 1 to 10 clusters, so the for loop runs 10 iterations.
-Plotting the Within Cluster Sum of Squares for the different number of clusters and using Elbow Method to choose the number of clusters.
+Plotting the Within Cluster Sum of Squares for the different number of clusters
 
-![image](https://user-images.githubusercontent.com/85560182/162848466-fde58a78-b040-4895-9e05-7d17e3259b38.png)
+![image](https://user-images.githubusercontent.com/85560182/162837577-ef4ebc0b-9649-44aa-be8f-b71af666d876.png)
 
 ### K-mean Clustering Results 
 
@@ -70,12 +70,12 @@ We obtained 4 segments:
 |     standard   |   0.029825	| 0.173684	| 35.635088	| 0.733333	| 141218.249123	| 1.271930	| 1.522807	| 570	| 0.2850|
 |     career focused   |   0.853901 |	0.997163	| 28.963121 |	1.068085 |	105759.119149 |	0.634043 |	0.422695	| 705	| 0.3525|
 
-- Segment 1. Composed almost equally of men and women with the average age of 56. Comparing the mean with the oldest clusters we see that it contains the oldest individuals. More than 2/3 are in relationship and they also have the higher level of education and income. We can call them  a wealthy  married couples in their 50s. – Well off.
+- Segment 1. Composed almost equally of men and women with the average age of 56. Comparing the mean with the oldest clusters we see that it contains the oldest individuals. More than 2/3 are in relationship and they also have the higher level of education and income. We can call them  a wealthy  married couples in their 50s. – Well off
 - Segment 2. In this segment 2/3 are men and almost all are single people with an average age of 36. The level of education is on average low compared to other segments. The salary is also the lowest and they live in small cities. We can name it - Fewer opportunities. 
 - Segment 3. This is the youngest segment where predominate women in relationship, average age 29. They have a medium level of education, average income and middle management jobs. They seem to be equally distributed between small and mid-size cities. So they seem to be average in every parameter so we can call it - Average or Standard.
 - Segment 4. Mostly men, less than 20% in the relationship, low values in education and high in income and occupation. Most of this segment lives in in large or middle-size cities. They are career focused in their 30s.
 
-### Plotting the results from the K-means algorithm.
+Plotting the results from the K-means algorithm.
 
 ![image](https://user-images.githubusercontent.com/85560182/161345370-c1c46ed3-9451-4373-b2de-bdef349e3238.png)
 
@@ -107,16 +107,14 @@ After plotting the components, we are able to distinguish the all 4 cluster so t
 ![image](https://user-images.githubusercontent.com/85560182/162837789-f721b679-f87a-4066-bbbe-848efd88e0ff.png)
 ![image](https://user-images.githubusercontent.com/85560182/162837820-f706af6b-2d8c-4d1c-b037-91873548bf7d.png)
 
-## Positioning
-Here we try to answer the questions:
-2. Will the customer buy the product from a particular product category when they enter the shop? 
-3. Which brand is the customer going to choose 
-4. How many units is the customer going to purchase?	
+## 2. Purchase Descriptive Analytics 
 
+Marketing mix is the main approach to positioning and this analysis will focus on customer behaviour in terms of purchase probability, brand choice probability, and purchase quantity.  
+For this purpose, the machine learning algorithms (linear regression and logistic regression) were implemented.
 
-### Segmentation data
+### Dataset for Segmentation
 
-The dataset consists of information about the purchases of chocolate  bars of 500 individuals from a given area when entering a physical ‘FMCG’ store in the period of 2 years. All data has been collected through the loyalty cards they use at checkout. The data has been preprocessed and there are no missing values.
+The dataset consists of information about the purchases of chocolate bars of 500 individuals from a given area when entering a physical ‘FMCG’ store over a 2-year period. All data has been collected through the loyalty cards they use at checkout. The data has been pre-processed and there are no missing values.
 
 
 |          |     ID           |     Day    |     Incidence    |     Brand    |     Quantity    |     Last_Inc_Brand    |     Last_Inc_Quantity    |     Price_1    |     Price_2    |     Price_3    |     ...    |     Promotion_4    |     Promotion_5    |     Sex    |     Marital status    |     Age    |     Education    |     Income    |     Occupation    |     Settlement size    |     Segment    |
@@ -127,10 +125,15 @@ The dataset consists of information about the purchases of chocolate  bars of 50
 |     3    |     200000001    |     16     |     0            |     0        |     0           |     0                 |     0                    |     1.52       |     1.89       |     1.98       |     ...    |     0              |     0              |     0      |     0                 |     47     |     1            |     110866    |     1             |     0                  |     0          |
 |     4    |     200000001    |     18     |     0            |     0        |     0           |     0                 |     0                    |     1.52       |     1.89       |     1.99       |     ...    |     0              |     0              |     0      |     0                 |     47     |     1            |     110866    |     1             |     0                  |     0          |
 
-The data has been mapped with the values:
+The data explanation:
 - Incidence: 0 -The customer has not purchased an item from the category of interest, 1 - The customer has purchased an item from the category of interest
 - Brand: 0 - No brand was purchased, 1 -  Brand ID the customer has purchased
 - Last_Inc_Brand: 0 - No brand was purchased, {1,2,3,4,5} - brand ID the customer has purchased on their previous store visit
+- Price_1:  Price of an item from Brand 1 on a particular day
+- Price_2:  Price of an item from Brand 2 on a particular day
+- Price_3:  Price of an item from Brand 3 on a particular day
+- Price_4:  Price of an item from Brand 4 on a particular day
+- Price_5:  Price of an item from Brand 5 on a particular day
 - Promotion_1:  0 - Brand 1 was not on promotion or not on a particular day, 1 - Brand 1 was on promotion or not on a particular day
 - Promotion_2:  0 - Brand 2 was not on promotion or not on a particular day, 1 - Brand 2 was on promotion or not on a particular day
 - Promotion_3:  0 - Brand 3 was not on promotion or not on a particular day, 1 - Brand 3 was on promotion or not on a particular day
@@ -142,62 +145,58 @@ The data has been mapped with the values:
 - Occupation: 0 – unemployed / unskilled, 1 - skilled employee, 2 - management / self-employed / highly qualified employee
 - Settlement size: 0 – small city, 1 - midsized city, 2 – big city
 
-
 ### Applying the segmentation model 
 
-An important part of the analytics is knowing how the customers are similar to each other’s. So we’ll use the insights we’ve gain so far and we place the new customers to 4 clusters we have determined. So the data needs to be pre-processed the same way how when building the customer segmentation model.
-To standardise the variables, we will import the scaler and PCA object but will not fit them instead we will transform the data by using them.
+An important part of the analytics is knowing how the customers are similar to each other. Therefore, the insights gained so far will be used and the new customers will be placed within four clusters that were determined. The data needs to be pre-processed the same way as when building the customer segmentation model.
+To standardise the variables, it is necessary to import the scaler and PCA object and the data will be transformed by using them. 
 
-### 1. 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐯𝐞 𝐀𝐧𝐚𝐥𝐲𝐬𝐢𝐬 𝐛𝐲 𝐒𝐞𝐠𝐦𝐞𝐧𝐭𝐬
+### 2.1. Descriptive Analysis by Segments
 
-So I will be building purchase behaviour model and analysing purchase behaviour of the segments. 
-Starting from calculating number of visits, number of purchases and average number of purchases and which segment they belong and calculating the segment proportions. 
-Next calculating the mean of average purchases by the four segments would help to determine the average customer behaviour in each segment.
+Building purchase behaviour model and analysing purchase behaviour of the segments. 
+Starting from calculating number of visits, number of purchases and average number of purchases and which segment customers belong to, then calculating the segment proportions. Calculating the mean of average purchases by the four segments would help to determine the average customer behaviour in each segment.
+Gained information can be used to calculate the segment proportions, by grouping each segment.
 
-The information we gain we can use it to calculate the segment proportions, by gruping by the each segment.
-
-# Segment Proportions
-
-### 1. Proportions of the purchases by segment 
+### Proportions of the purchases by segment 
 
 ![image](https://user-images.githubusercontent.com/85560182/162837988-4888d44e-6044-44f4-83bc-8b5d0220e25f.png)
 
-It is clearly visible that the largest segment is fewer- oportunities followed by career focused individuals. 
+It is clearly visible that the largest segment is fewer- opportunities followed by career focused individuals. 
 
-### 2.  𝐏𝐮𝐫𝐜𝐡𝐚𝐬𝐞 𝐎𝐜𝐜𝐚𝐬𝐢𝐨𝐧 and a𝐮𝐫𝐜𝐡𝐚𝐬𝐞 𝐈𝐧𝐜𝐢𝐝𝐞𝐧𝐜𝐞
+### 2.2 Purchase occasion and purchase incidence 
 
-Next calculating the mean of average purchases by the four segments would help to determine the average customer behaviour in each segment.
+Calculating the mean of average purchases by the four segments would help to determine the average customer behaviour in each segment.
 
 ### The average number of store visits
 
-Using the bar chart to visualize how often the people from diferent segment visit the store. 
+Using the bar chart to visualize how often the people from different segment visit the store. 
 
 ![image](https://user-images.githubusercontent.com/85560182/162838129-e1764b73-46f7-47a9-b6de-760df4834bc3.png)
 
-So looking at the bar chart we can see which segment visit the sore the most and we can see that career focused is the most frequent but at the same time the standard deviation quite high, this imply that the individuals within this segment are least homogenous, that is least alike when it comes to how often they visit the grocery store.
+Looking at the bar chart it is visible which segment visit the sore the most. Career focused is the most frequent but at the same time the standard deviation is quite high, this imply that the individuals within this segment are least homogenous, that is least alike when it comes to how often they visit the grocery store.
 
 ### Number of purchases by segment
 
 ![image](https://user-images.githubusercontent.com/85560182/162838158-e624981a-0cec-4ad1-a1a9-2f21cf6a9c23.png)
 
-we observed that the career focused segments buys the product more often but at the same time its standard deviation is the highest. the most homogenues segment is the fewer oporunities. also standatd segment is consistent with  
+It can be observed that the career focused segments buys the product more often but at the same time its standard deviation is the highest. The most homogenous segment is the fewer opportunities also standard segment is consistent.
+ 
 
-### 3. Brand choice
+### 2.3. Brand Choice
 
-which brand is the customer going to choose?
-for this porpose made dummies for each of the five brands
--	So I have to concentrate only on the occasions when the chocolate bar was purchased and for better understanding I created the heat map of average brand choice by segment. Where Brand 1 is the chipperst and Brabd 5 most expensive.
-	
+Which brand is the customer going to choose?
+Taking into account the occasions when the chocolate bar was purchased. 
+The heat map shows average brand choice by segment. Where Brand 1 is the cheapest and Brand 5 is the most expensive.	
 ![image](https://user-images.githubusercontent.com/85560182/162838267-782cc679-399b-4bda-ab26-f145c14ccabe.png)
 
-And from the result is visible that almost 70% of fewer oportunities segment strongly prefer the brand 2  which is not the chippest one, where else 63% of career focused segment prefer the most expensive one -Brand 5 which can indicate that this segment is looking for some kind of luxury status. and this can be the oportunity to rise the price of brand 5 even further. interestingly the well off segment prefers the more luxurius brand but not the most expensive -Brand 4.
-looking at the standard segment we can see that is the most heterogenious one as the preferences are scater all arount the brands. 
-- if looking for actionable insight one idea is to tring influence them to try out diferent brands. This insight are very interesing but they dont really explain how they afect the botom line so exporing reveniu by segment is the next step.
+From the result is visible that almost 70% of Fewer opportunities segment strongly prefer the Brand 2 which is not the cheapest one, where 62% of Career focused segment prefer the most expensive one -Brand 5, which can indicate that this segment is looking for some kind of luxury status. Interestingly the Well-off segment prefers the more luxurious brand but not the most expensive -Brand 4.
+Looking at the Standard segment we can see that is the most heterogeneous one as the preferences are scatter across all brands. 
+- If looking for actionable insight one idea could be influencing them to try out different brands. This insight is very interesting but it doesn’t really explain how they affect the bottom line so exploring revenue by segment is the next step. 
 
-### 4. Revenue by segment 
+### 4. Revenue By Segment 
 
 Calculating revenue for each brand by segment and total revenue for each of the four segments.
-Also modifying the table to include the segment proportions, it is interesting to see the size of the segment compared to the revenue they bring.
+Modifying the table to take into account the proportion of the segments will allow us to see the size of the segment compared to the revenue they bring.
+
 
 |                            |     Revenue Brand 1    |     Revenue Brand 2    |     Revenue Brand 3    |     Revenue Brand 4    |     Revenue Brand 5    |     Total Revenue    |     Segment Proportions    |
 |----------------------------|------------------------|------------------------|------------------------|------------------------|------------------------|----------------------|----------------------------|
@@ -209,10 +208,12 @@ Also modifying the table to include the segment proportions, it is interesting t
 
 
 
-Analysing the result, we can see that the career focused segment bring the most revenue follow by the well- off and fewer opportunities segments. The standard segment is smallest in contribution to the revenue. Looking at the segment proportion the career-focused is also the largest. The well- off and fewer- opportunities segments spend around the same amount of money on the chocolate bars. However, the fewer- opportunities segment is twice as big as well – off.
-Looking from the perspective of the individual brands we can see that the brand 3 has the lowest revenue and its higher contributor is the standard segment. 
-So if we looking at the actionable ideas, perhaps reducing the price of brand 3 could encourage that segment to buying this product even more. 
-Brand 4 is popular in well-off segment which also is a big buyer of Brand 5. So looks like the loyalty is the biggest factor. Here insignificant increase the price of that brands could be consider. 
+Analysing the result, we can see that the Career focused segment bring the most revenue follow by the Well- off and Fewer opportunities segments. The Standard segment is smallest in contribution to the revenue. Looking at the segment proportion the Career-focused is also the largest. The Well- off and Fewer- opportunities segments spend around the same amount of money on the chocolate bars. However, the Fewer- opportunities segment double the size of Well – off segment.
+Looking from the perspective of the individual brands we can see that the Brand 3 has the lowest revenue and its higher contributor is the Standard segment. 
+So if we looking at the actionable ideas, reducing the price of Brand 3 could encourage that segment to buying this product even more. 
+Brand 4 is popular in Well-off segment which also is a big buyer of Brand 5. So it seems that loyalty is the biggest factor. Here we can take into account the slight increase in the price of these brands.
+
+### 3. Purchase Predictive Analytics
 
 
 
