@@ -261,7 +261,7 @@ Elasticity = beta*price*(1-P(purchase))
 pe = model_purchase.coef_[:, 0] * price_range * (1 - purchase_pr)
 Representing data frame as a graph to see the elasticity curve and how it changes comparing to the price range. 
 
- ## ----------Image 
+![image](https://user-images.githubusercontent.com/85560182/164561135-1b4a501b-0b9e-421d-bbf8-fe3342d60122.png)
 
 As a function, price elasticity decreases as the price increases. The decrease of the price is slow in the range 0.5 and 1.1 and then became steeper.
 Thus, an increase in elasticity of 1% leads to decrease of less than 1% of purchase probability. Therefore, purchase probability at this point is inelastic. 
@@ -271,7 +271,7 @@ The obtained results are valuable, but we need to refine this analysis examining
 
 ### Purchase Probability by Segments
 
-## --------image
+![image](https://user-images.githubusercontent.com/85560182/164561214-c21ba8e9-2c66-4adb-b1d5-01d3104d3f6b.png)
 
 Tipping points for all the segments:
 average – 1.25
@@ -318,7 +318,7 @@ We are interested in the overall impact of promotional activities on elasticitie
 2.	No promotional activities.
 The graph represents the results
 
-## ----image 
+![image](https://user-images.githubusercontent.com/85560182/164561277-832321d0-ec29-4deb-a0cb-8cc4aa3543e4.png)
 
 These two lines represent the purchase probabilities given maximum and minimum promotional activities. We can see that the line represents the elasticity with promotion is located above the non-promotion elasticity for the entire price range. 
 Additionally, check the master data frame for the tipping point we can see that inelasticity with promotion ends at 1.27 while elasticity with promotion at 1.46 making customers less sensitive to price changes during promotional activities. This means that it would be more beneficial to have a higher original price and permanent promotion rather than lower original price.
@@ -354,7 +354,7 @@ The coefficient for Brand 1 is negative for its own price but positive for all o
 
 Performing brand choice analysis is useful from a brand perspective. Therefore, we will focus on Brand 5 to gain insight in developing marketing strategy to target customers. 
 
-## ---------	Image 
+![image](https://user-images.githubusercontent.com/85560182/164561356-531af07c-0e26-4f3a-bb78-c02081887924.png)
 
 Based on the visualization we can see how the Brand 5 purchase probability changes when its own price changes.
 
@@ -371,7 +371,7 @@ Computing the product probability using our model brand choice using the formula
 
 The results:
 
-## ---Image
+![image](https://user-images.githubusercontent.com/85560182/164561426-0afd89b6-e1bf-432f-ba5d-6eafc3a1defe.png)
 
 It is visible that the elasticities are positive throughout the price range. This indicates that if the competitor’s Brand 4 increases prices the purchase probability for own brand 5 would increase. When a competitor rises their price, customers start buying own brand product more and the elasticity show us exactly how much more. 
 
@@ -395,7 +395,7 @@ In this analysis all cross price elasticities are positive as all brands are sub
 
 We are interested in analysing the purchase probability for choosing brand 5 by each of the segment. 
 
-## -----image 
+![image](https://user-images.githubusercontent.com/85560182/164561490-4e053ec7-4640-4c7a-a8be-720653978510.png)
 
 Plotting the own and cross brand price elasticities for the average customer and each of the four segments allows us observe differences and similarities between the segments and examine their preference, when it comes to brand choice.
 
@@ -429,7 +429,7 @@ Calculate the price elasticity the formulas:
 price_elasticity_quantity_promotion_yes = beta_quantity * price_range / predict_quantity
 price_elasticity_quantity_promotion_no = beta_quantity * price_range / predict_quantity
 
-## ----image
+![image](https://user-images.githubusercontent.com/85560182/164561537-b385f987-5726-4183-a6ba-27b9cbc9d4a7.png)
 
 Plotting the two elasticities side by side we observe that the two elasticities are very close together for almost the entire price range.
 The insights we gained are implying that that promotion does not appear to be a significant factor in customer decision about how many chocolate candy bars to purchase.
