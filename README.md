@@ -257,8 +257,8 @@ By using describe method we can see that the price ranges from min 1.1 to max 2.
 
 
 Predicting the purchase probability for our newly defined price range, we can easily see that for lower price the purchase probability is higher and vice versa. By calculating the price elasticity, we can predict how the demand for a product changes for the given price change.
-Elasticity = beta*price*(1-P(purchase))
-pe = model_purchase.coef_[:, 0] * price_range * (1 - purchase_pr)
+#### Elasticity = beta*price*(1-P(purchase))
+#### pe = model_purchase.coef_[:, 0] * price_range * (1 - purchase_pr)
 Representing data frame as a graph to see the elasticity curve and how it changes comparing to the price range. 
 
 ![image](https://user-images.githubusercontent.com/85560182/164561135-1b4a501b-0b9e-421d-bbf8-fe3342d60122.png)
@@ -426,8 +426,8 @@ It appears that promotion have a negative impact on the purchase quantity of the
 We examine the price elasticity of purchase quantity with and without promotional activities for each price point.
 
 Calculate the price elasticity the formulas:
-price_elasticity_quantity_promotion_yes = beta_quantity * price_range / predict_quantity
-price_elasticity_quantity_promotion_no = beta_quantity * price_range / predict_quantity
+#### price_elasticity_quantity_promotion_yes = beta_quantity * price_range / predict_quantity
+#### price_elasticity_quantity_promotion_no = beta_quantity * price_range / predict_quantity
 
 ![image](https://user-images.githubusercontent.com/85560182/164561537-b385f987-5726-4183-a6ba-27b9cbc9d4a7.png)
 
