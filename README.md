@@ -186,6 +186,7 @@ It can be observed that the career focused segments buys the product more often 
 Which brand is the customer going to choose?
 Taking into account the occasions when the chocolate bar was purchased. 
 The heat map shows average brand choice by segment. Where Brand 1 is the cheapest and Brand 5 is the most expensive.	
+
 ![image](https://user-images.githubusercontent.com/85560182/162838267-782cc679-399b-4bda-ab26-f145c14ccabe.png)
 
 From the result is visible that almost 70% of Fewer opportunities segment strongly prefer the Brand 2 which is not the cheapest one, where 62% of Career focused segment prefer the most expensive one -Brand 5, which can indicate that this segment is looking for some kind of luxury status. Interestingly the Well-off segment prefers the more luxurious brand but not the most expensive -Brand 4.
@@ -225,10 +226,15 @@ Before starting to build the model the data needs to be pre-process the same way
 The model: binomial logistic regression – is a classification method which outputs a probability between 0 and 1.
 Choosing dependent and independent variable in the model. 
 ‘Incidence’- dependent variable (predicting probability of purchase)
+
 Y = df_pa['Incidence']
+
 Purchase probably is influences by price so that will be the predictor (independent variable)
+
 X = price (independent)
+
 X = pd.DataFrame()
+
 X['Mean_Price'] = (df_pa['Price_1'] +
                    df_pa['Price_2'] +
                    df_pa['Price_3'] +
@@ -289,9 +295,13 @@ In the purchase analysis model, price is the most characteristic and product pro
 The model quantifies the exact relationship between price, promotion and probability of purchase.
 
 Modelling purchase probability where:
+
 Y = df_pa['Incidence']
+
 X will include the price feature 
+
 X = pd.DataFrame()
+
 X['Mean_Price'] = (df_pa['Price_1'] + 
                    df_pa['Price_2'] + 
                    df_pa['Price_3'] + 
@@ -300,6 +310,7 @@ X['Mean_Price'] = (df_pa['Price_1'] +
                    
 Including a second promotion feature to examine the effects of promotions on purchase probability.
 Calculating the average promotion rate across the five brands. 
+
 X['Mean_Promotion'] = (df_pa['Promotion_1'] +
                        df_pa['Promotion_2'] +
                        df_pa['Promotion_3'] +
@@ -308,7 +319,9 @@ X['Mean_Promotion'] = (df_pa['Promotion_1'] +
 
 Estimate the logistic regression model and fitting it with Y and new X data frame. 
 Obtained coefficients:
+
 For the price: -1.49392709, it is negative. 
+
 For promotion: 0.56148565, it is positive that means with the increase in promotion the purchase probability will also increase.
 
 ### Price Elasticity with Promotion 
@@ -330,10 +343,13 @@ Focusing on the ‘brand’ variable and which one was purchased. In such a situ
 Since there are 5 different classes (brands of chocolates) multinomial logistic regression is used.
 
 Building the regression model to determine the customer choice of the brand.
+
 Y = brand choice['Brand']  
 
 Prediction will be based on the prices for the five brands. 
+
 features = ['Price_1', 'Price_2', 'Price_3', 'Price_4', 'Price_5']
+
 X = brand choice [features] 
 
 Fitting the model with the input X and target Y
@@ -412,11 +428,15 @@ To determine price elasticity of purchase quantity, also known as price elastici
 Model - Linear regression 
 Choosing dependent and independent variable in the model. 
 Independent variable: price, promotion 
+
 X = df_purchase_quantity[['Price_Incidence', 'Promotion_Incidence']]
+
 Dependent variable: quantity
+
 Y = df_purchase_quantity['Quantity']
 
 The coefficients for price and promotion are both negative. 
+
 array([-0.8173651 , -0.10504673])
 
 It appears that promotion have a negative impact on the purchase quantity of the average client which is unexpected.
@@ -435,8 +455,10 @@ Plotting the two elasticities side by side we observe that the two elasticities 
 The insights we gained are implying that that promotion does not appear to be a significant factor in customer decision about how many chocolate candy bars to purchase.
 
 
-### Data reference:
-[segmentation data.csv]([https://github.com/IwonaV/Fashion-analytics-report/blob/main/retail_dataset.xlsx](https://github.com/IwonaV/Customer-analysis-for-FMCG-company/blob/main/segmentation%20data.csv) by [365datascience](https://learn.365datascience.com/)
+## Data reference:
+[segmentation data.csv](https://github.com/IwonaV/Customer-analysis-for-FMCG-company/blob/main/segmentation%20data.csv) by [365datascience](https://learn.365datascience.com/)
+
+[purchase data.csv](https://github.com/IwonaV/Customer-analysis-for-FMCG-company/blob/main/purchase%20data.csv) by [365datascience](https://learn.365datascience.com/)
 
 
 
