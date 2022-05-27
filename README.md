@@ -435,4 +435,8 @@ Plotting the two elasticities side by side we observe that the two elasticities 
 The insights we gained are implying that that promotion does not appear to be a significant factor in customer decision about how many chocolate candy bars to purchase.
 
 
+### Data reference:
+[segmentation data.csv]([https://github.com/IwonaV/Fashion-analytics-report/blob/main/retail_dataset.xlsx](https://github.com/IwonaV/Customer-analysis-for-FMCG-company/blob/main/segmentation%20data.csv) by [365datascience](https://learn.365datascience.com/)
+
+
 
